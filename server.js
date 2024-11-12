@@ -8,6 +8,8 @@ const cors = require('cors')
 const PORT = process.env.PORT
 
 const petRouter = require('./controllers/pets.js')
+const testJWTRouter = require('./controllers/test-jwt')
+const usersRouter = require('./controllers/users')
 
 app.use(cors({ origin: 'http://localhost:5173' }))
 
@@ -20,7 +22,9 @@ mongoose.connection.on('connected', () => {
 app.use(express.json())
 
 // Routes go here
+app.use('/test-jwt', testJWTRouter)
 app.use('/pets', petRouter)
+app.use('/users', usersRouter)
 
 app.listen(PORT, () => {
   console.log('The express app is ready!')
