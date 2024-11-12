@@ -1,5 +1,5 @@
-import Pet from '../models/pet.js'
-import express from 'express'
+const Pet = require('../models/pet.js')
+const express = require('express')
 const router = express.Router()
 
 router.post('/', async (req, res) => {
@@ -73,4 +73,4 @@ router.put('/:petId', async (req, res) => {
   }
 })
 
-export default router
+module.exports = router
