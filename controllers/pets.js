@@ -44,7 +44,7 @@ router.delete('/:petId', async (req, res) => {
       res.status(404)
       throw new Error('Pet not found.')
     }
-    res.status(200).json(`You just deleted: ${foundPet.name}`)
+    res.status(200).json(foundPet)
   } catch (error) {
     if (res.statusCode === 404) {
       res.json({ error: error.message })

@@ -4,6 +4,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const cors = require('cors')
+const morgan = require('morgan')
 
 const PORT = process.env.PORT
 
@@ -21,6 +22,7 @@ mongoose.connection.on('connected', () => {
 })
 
 app.use(express.json())
+app.use(morgan('dev'))
 
 // Routes go here
 app.use('/test-jwt', testJWTRouter)
